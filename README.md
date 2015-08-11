@@ -2,6 +2,8 @@
 
 > Methods for working with the GitHub Gist API. Node.js/JavaScript
 
+See the [GitHub Gist API documentation](https://developer.github.com/v3/gists/) for additional details on each method.
+
 ## Install
 
 Install with [npm](https://www.npmjs.com/)
@@ -20,15 +22,6 @@ var gists = new Gists({
 });
 ```
 
-All methods use the following format:
-
-```js
-gists.METHOD({id: GIST_ID}, function(err, res) {
-  // `err` is an error object or null
-  // `res` is the github response
-});
-```
-
 **Example**
 
 Download the [Markdown Cheatsheet](https://gist.github.com/jonschlinkert/5854601) gist.
@@ -40,6 +33,8 @@ gists.download({id: '5854601'}, function(err, res) {
   console.log(res)
 });
 ```
+
+See the [GitHub Gist API documentation](https://developer.github.com/v3/gists/) for additional details on each method.
 
 ## API
 
@@ -311,6 +306,95 @@ Delete a gist.
 ```js
 // equivalent of `DELETE /gists/:id`
 gists.destroy(opts, cb);
+```
+
+### [.comment](index.js#L322)
+
+Create a comment.
+
+**Params**
+
+* `opts` **{Object}**
+* `opts.id` **{String}**: The id of the gist to comment on
+* `callback` **{Function}**
+
+**Example**
+
+```js
+// equivalent of `POST /gists/:id/comments`
+gists.comment(opts, cb);
+```
+
+### [.editComment](index.js#L342)
+
+Edit a comment.
+
+**Params**
+
+* `opts` **{Object}**
+* `opts.id` **{String}**: The id of the gist.
+* `opts.comment_id` **{String}**: The id of the comment to edit.
+* `callback` **{Function}**
+
+**Example**
+
+```js
+// equivalent of `PATCH /gists/:gist_id/comments/:id`
+gists.editComment(opts, cb);
+```
+
+### [.destroyComment](index.js#L363)
+
+Delete a comment.
+
+**Params**
+
+* `opts` **{Object}**
+* `opts.id` **{String}**: The id of the gist.
+* `opts.comment_id` **{String}**: The id of the comment to edit.
+* `callback` **{Function}**
+
+**Example**
+
+```js
+// equivalent of `DELETE /gists/:gist_id/comments/:id`
+var opts = {id: 'a6db0bec360bb87e9418', commend_id: 1};
+gists.destroyComment(opts, cb);
+```
+
+### [.getComment](index.js#L383)
+
+Get a single comment from a gist.
+
+**Params**
+
+* `opts` **{Object}**
+* `opts.id` **{String}**: The id of the gist to get.
+* `opts.comment_id` **{String}**: The id of the comment to get.
+* `callback` **{Function}**
+
+**Example**
+
+```js
+// equivalent of `/gists/:id/comments/:comment_id`
+gists.comment(opts, cb);
+```
+
+### [.comments](index.js#L402)
+
+List comments on a gist
+
+**Params**
+
+* `opts` **{Object}**
+* `opts.id` **{String}**: The id of the gist
+* `callback` **{Function}**
+
+**Example**
+
+```js
+// equivalent of `GET /gists/:id/comments`
+gists.getComments(opts, cb);
 ```
 
 ## Related projects
