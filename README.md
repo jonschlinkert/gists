@@ -1,6 +1,6 @@
 # gists [![NPM version](https://badge.fury.io/js/gists.svg)](http://badge.fury.io/js/gists)
 
-> Node.js utils for working with the GitHub Gist API.
+> Methods for working with the GitHub Gist API. Node.js/JavaScript
 
 ## Install
 
