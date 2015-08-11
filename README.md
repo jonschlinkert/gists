@@ -2,7 +2,12 @@
 
 > Methods for working with the GitHub Gist API. Node.js/JavaScript
 
-See the [GitHub Gist API documentation](https://developer.github.com/v3/gists/) for additional details on each method.
+**Full support for:**
+
+* [Gist API](https://developer.github.com/v3/gists/)
+* [Gist Comments API](https://developer.github.com/v3/gists/comments/)
+
+_(If you find something missing or encounter a bug, please [create an issue](https://github.com/jonschlinkert/gists/issues/new). Thanks!)_
 
 ## Install
 
@@ -11,6 +16,8 @@ Install with [npm](https://www.npmjs.com/)
 ```sh
 $ npm i gists --save
 ```
+
+See the [GitHub Gist API documentation](https://developer.github.com/v3/gists/) for additional details on each method.
 
 ## Usage
 
