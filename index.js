@@ -3,12 +3,12 @@
 var GitHub = require('github-base');
 
 /**
- * Creat an instance of `Gists` with the
- * given default `options`.
+ * Creat an instance of `Gists` with the given default `options`.
  *
  * @param {Object} `options`
  * @api public
  */
+
 function Gists(options) {
   GitHub.call(this, options);
 }
@@ -23,9 +23,10 @@ GitHub.delegate({
   constructor: Gists,
 
   /**
-   * List a user's gists (`GET /users/:username/gists`)
+   * List a user's gists.
    *
    * ```js
+   * // equivalent of `GET /users/:username/gists`
    * gists.list({username: 'doowb'}, cb);
    * ```
    * @name .list
@@ -34,6 +35,7 @@ GitHub.delegate({
    * @param {Function} `callback`
    * @api public
    */
+
   list: function (opts, cb) {
     this.get('/users/:username/gists', opts, cb);
     return this;
@@ -41,9 +43,10 @@ GitHub.delegate({
 
   /**
    * List the authenticated user's gists or if called anonymously,
-   * this will return all public gists: (`GET /gists/`)
+   * this will return all public gists:.
    *
    * ```js
+   * // equivalent of `GET /gists/`
    * gists.all(opts, cb);
    * ```
    * @name .all
@@ -51,15 +54,17 @@ GitHub.delegate({
    * @param {Function} `callback`
    * @api public
    */
+
   all: function (opts, cb) {
     this.get('/gists/', opts, cb);
     return this;
   },
 
   /**
-   * List all public gists: (`GET /gists/public`)
+   * List all public gists:.
    *
    * ```js
+   * // equivalent of `GET /gists/public`
    * gists.allPublic(opts, cb);
    * ```
    * @name .allPublic
@@ -67,15 +72,17 @@ GitHub.delegate({
    * @param {Function} `callback`
    * @api public
    */
+
   allPublic: function (opts, cb) {
     this.get('/gists/public', opts, cb);
     return this;
   },
 
   /**
-   * List the authenticated user's starred gists. (`GET /gists/starred`)
+   * List the authenticated user's starred gists..
    *
    * ```js
+   * // equivalent of `GET /gists/starred`
    * gists.starred(opts, cb);
    * ```
    * @name .starred
@@ -83,15 +90,17 @@ GitHub.delegate({
    * @param {Function} `callback`
    * @api public
    */
+
   starred: function (opts, cb) {
     this.get('/gists/starred', opts, cb);
     return this;
   },
 
   /**
-   * Download a gist. (`GET /gists/:id`)
+   * Download a gist..
    *
    * ```js
+   * // equivalent of `GET /gists/:id`
    * gists.download(opts, cb);
    * ```
    * @name .download
@@ -100,15 +109,17 @@ GitHub.delegate({
    * @param {Function} `callback`
    * @api public
    */
+
   download: function (opts, cb) {
     this.get('/gists/:id', opts, cb);
     return this;
   },
 
   /**
-   * Get a specific revision of a gist (`GET /gists/:id/:sha`)
+   * Get a specific revision of a gist.
    *
    * ```js
+   * // equivalent of `GET /gists/:id/:sha`
    * gists.revision(opts, cb);
    * ```
    * @name .revision
@@ -118,15 +129,17 @@ GitHub.delegate({
    * @param {Function} `callback`
    * @api public
    */
+
   revision: function (opts, cb) {
     this.get('/gists/:id/:sha', opts, cb);
     return this;
   },
 
   /**
-   * List gist commits for a gist (`GET /gists/:id/commits`)
+   * List gist commits for a gist.
    *
    * ```js
+   * // equivalent of `GET /gists/:id/commits`
    * gists.commit(opts, cb);
    * ```
    * @name .commits
@@ -135,15 +148,17 @@ GitHub.delegate({
    * @param {Function} `callback`
    * @api public
    */
+
   commits: function (opts, cb) {
     this.get('/gists/:id/commits', opts, cb);
     return this;
   },
 
   /**
-   * List all forks for a gist. (`GET /gists/:id/forks`)
+   * List all forks for a gist..
    *
    * ```js
+   * // equivalent of `GET /gists/:id/forks`
    * gists.forks(opts, cb);
    * ```
    * @name .forks
@@ -152,15 +167,17 @@ GitHub.delegate({
    * @param {Function} `callback`
    * @api public
    */
+
   forks: function (opts, cb) {
     this.get('/gists/:id/forks', opts, cb);
     return this;
   },
 
   /**
-   * Create a gist (`POST /gists`)
+   * Create a gist.
    *
    * ```js
+   * // equivalent of `POST /gists`
    * gists.create(opts, cb);
    * ```
    * @name .create
@@ -168,15 +185,17 @@ GitHub.delegate({
    * @param {Function} `callback`
    * @api public
    */
+
   create: function (opts, cb) {
     this.post('/gists/', opts, cb);
     return this;
   },
 
   /**
-   * Fork a gist (`POST /gists/:id/forks`)
+   * Fork a gist.
    *
    * ```js
+   * // equivalent of `POST /gists/:id/forks`
    * gists.fork(opts, cb);
    * ```
    * @name .fork
@@ -185,15 +204,17 @@ GitHub.delegate({
    * @param {Function} `callback`
    * @api public
    */
+
   fork: function (opts, cb) {
     this.post('/gists/:id/forks', opts, cb);
     return this;
   },
 
   /**
-   * Edit/update a gist (`PATCH /gists/:id`)
+   * Edit/update a gist.
    *
    * ```js
+   * // equivalent of `PATCH /gists/:id`
    * gists.edit(opts, cb);
    * ```
    * @name .edit
@@ -202,15 +223,17 @@ GitHub.delegate({
    * @param {Function} `callback`
    * @api public
    */
+
   edit: function (opts, cb) {
     this.patch('/gists/:id', opts, cb);
     return this;
   },
 
   /**
-   * Star a gist (`PUT /gists/:id/star`)
+   * Star a gist.
    *
    * ```js
+   * // equivalent of `PUT /gists/:id/star`
    * gists.star(opts, cb);
    * ```
    * @name .star
@@ -219,15 +242,17 @@ GitHub.delegate({
    * @param {Function} `callback`
    * @api public
    */
+
   star: function (opts, cb) {
     this.put('/gists/:id/star', opts, cb);
     return this;
   },
 
   /**
-   * Untar a gist (`DELETE /gists/:id/star`)
+   * Untar a gist.
    *
    * ```js
+   * // equivalent of `DELETE /gists/:id/star`
    * gists.unstar(opts, cb);
    * ```
    * @name .unstar
@@ -236,15 +261,17 @@ GitHub.delegate({
    * @param {Function} `callback`
    * @api public
    */
+
   unstar: function (opts, cb) {
     this.del('/gists/:id/star', opts, cb);
     return this;
   },
 
   /**
-   * Check if a gist is starred (`GET /gists/:id/star`)
+   * Check if a gist is starred.
    *
    * ```js
+   * // equivalent of `GET /gists/:id/star`
    * gists.isStarred(opts, cb);
    * ```
    * @name .isStarred
@@ -253,15 +280,17 @@ GitHub.delegate({
    * @param {Function} `callback`
    * @api public
    */
+
   isStarred: function (opts, cb) {
     this.get('/gists/:id/star', opts, cb);
     return this;
   },
 
   /**
-   * Delete a gist (`DELETE /gists/:id`)
+   * Delete a gist.
    *
    * ```js
+   * // equivalent of `DELETE /gists/:id`
    * gists.destroy(opts, cb);
    * ```
    * @name .destroy
@@ -270,6 +299,7 @@ GitHub.delegate({
    * @param {Function} `callback`
    * @api public
    */
+
   destroy: function (opts, cb) {
     this.del('/gists/:id', opts, cb);
     return this;

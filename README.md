@@ -43,10 +43,9 @@ gists.download({id: '5854601'}, function(err, res) {
 
 ## API
 
-### [Gists](index.js#L13)
+### [Gists](index.js#L12)
 
-Creat an instance of `Gists` with the
-given default `options`.
+Creat an instance of `Gists` with the given default `options`.
 
 **Params**
 
@@ -62,9 +61,9 @@ var gists = new Gists({
 });
 ```
 
-### [.list](index.js#L38)
+### [.list](index.js#L39)
 
-List a user's gists (`GET /users/:username/gists`)
+List a user's gists.
 
 **Params**
 
@@ -75,12 +74,13 @@ List a user's gists (`GET /users/:username/gists`)
 **Example**
 
 ```js
+// equivalent of `GET /users/:username/gists`
 gists.list({username: 'doowb'}, cb);
 ```
 
-### [.all](index.js#L55)
+### [.all](index.js#L58)
 
-List the authenticated user's gists or if called anonymously, this will return all public gists: (`GET /gists/`)
+List the authenticated user's gists or if called anonymously, this will return all public gists:.
 
 **Params**
 
@@ -90,12 +90,13 @@ List the authenticated user's gists or if called anonymously, this will return a
 **Example**
 
 ```js
+// equivalent of `GET /gists/`
 gists.all(opts, cb);
 ```
 
-### [.allPublic](index.js#L71)
+### [.allPublic](index.js#L76)
 
-List all public gists: (`GET /gists/public`)
+List all public gists:.
 
 **Params**
 
@@ -105,12 +106,13 @@ List all public gists: (`GET /gists/public`)
 **Example**
 
 ```js
+// equivalent of `GET /gists/public`
 gists.allPublic(opts, cb);
 ```
 
-### [.starred](index.js#L87)
+### [.starred](index.js#L94)
 
-List the authenticated user's starred gists. (`GET /gists/starred`)
+List the authenticated user's starred gists..
 
 **Params**
 
@@ -120,12 +122,13 @@ List the authenticated user's starred gists. (`GET /gists/starred`)
 **Example**
 
 ```js
+// equivalent of `GET /gists/starred`
 gists.starred(opts, cb);
 ```
 
-### [.download](index.js#L104)
+### [.download](index.js#L113)
 
-Download a gist. (`GET /gists/:id`)
+Download a gist..
 
 **Params**
 
@@ -136,12 +139,13 @@ Download a gist. (`GET /gists/:id`)
 **Example**
 
 ```js
+// equivalent of `GET /gists/:id`
 gists.download(opts, cb);
 ```
 
-### [.revision](index.js#L122)
+### [.revision](index.js#L133)
 
-Get a specific revision of a gist (`GET /gists/:id/:sha`)
+Get a specific revision of a gist.
 
 **Params**
 
@@ -153,12 +157,13 @@ Get a specific revision of a gist (`GET /gists/:id/:sha`)
 **Example**
 
 ```js
+// equivalent of `GET /gists/:id/:sha`
 gists.revision(opts, cb);
 ```
 
-### [.commits](index.js#L139)
+### [.commits](index.js#L152)
 
-List gist commits for a gist (`GET /gists/:id/commits`)
+List gist commits for a gist.
 
 **Params**
 
@@ -169,12 +174,13 @@ List gist commits for a gist (`GET /gists/:id/commits`)
 **Example**
 
 ```js
+// equivalent of `GET /gists/:id/commits`
 gists.commit(opts, cb);
 ```
 
-### [.forks](index.js#L156)
+### [.forks](index.js#L171)
 
-List all forks for a gist. (`GET /gists/:id/forks`)
+List all forks for a gist..
 
 **Params**
 
@@ -185,12 +191,13 @@ List all forks for a gist. (`GET /gists/:id/forks`)
 **Example**
 
 ```js
+// equivalent of `GET /gists/:id/forks`
 gists.forks(opts, cb);
 ```
 
-### [.create](index.js#L172)
+### [.create](index.js#L189)
 
-Create a gist (`POST /gists`)
+Create a gist.
 
 **Params**
 
@@ -200,12 +207,13 @@ Create a gist (`POST /gists`)
 **Example**
 
 ```js
+// equivalent of `POST /gists`
 gists.create(opts, cb);
 ```
 
-### [.fork](index.js#L189)
+### [.fork](index.js#L208)
 
-Fork a gist (`POST /gists/:id/forks`)
+Fork a gist.
 
 **Params**
 
@@ -216,12 +224,13 @@ Fork a gist (`POST /gists/:id/forks`)
 **Example**
 
 ```js
+// equivalent of `POST /gists/:id/forks`
 gists.fork(opts, cb);
 ```
 
-### [.edit](index.js#L206)
+### [.edit](index.js#L227)
 
-Edit/update a gist (`PATCH /gists/:id`)
+Edit/update a gist.
 
 **Params**
 
@@ -232,12 +241,13 @@ Edit/update a gist (`PATCH /gists/:id`)
 **Example**
 
 ```js
+// equivalent of `PATCH /gists/:id`
 gists.edit(opts, cb);
 ```
 
-### [.star](index.js#L223)
+### [.star](index.js#L246)
 
-Star a gist (`PUT /gists/:id/star`)
+Star a gist.
 
 **Params**
 
@@ -248,12 +258,13 @@ Star a gist (`PUT /gists/:id/star`)
 **Example**
 
 ```js
+// equivalent of `PUT /gists/:id/star`
 gists.star(opts, cb);
 ```
 
-### [.unstar](index.js#L240)
+### [.unstar](index.js#L265)
 
-Untar a gist (`DELETE /gists/:id/star`)
+Untar a gist.
 
 **Params**
 
@@ -264,12 +275,13 @@ Untar a gist (`DELETE /gists/:id/star`)
 **Example**
 
 ```js
+// equivalent of `DELETE /gists/:id/star`
 gists.unstar(opts, cb);
 ```
 
-### [.isStarred](index.js#L257)
+### [.isStarred](index.js#L284)
 
-Check if a gist is starred (`GET /gists/:id/star`)
+Check if a gist is starred.
 
 **Params**
 
@@ -280,12 +292,13 @@ Check if a gist is starred (`GET /gists/:id/star`)
 **Example**
 
 ```js
+// equivalent of `GET /gists/:id/star`
 gists.isStarred(opts, cb);
 ```
 
-### [.destroy](index.js#L274)
+### [.destroy](index.js#L303)
 
-Delete a gist (`DELETE /gists/:id`)
+Delete a gist.
 
 **Params**
 
@@ -296,6 +309,7 @@ Delete a gist (`DELETE /gists/:id`)
 **Example**
 
 ```js
+// equivalent of `DELETE /gists/:id`
 gists.destroy(opts, cb);
 ```
 
