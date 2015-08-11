@@ -303,6 +303,105 @@ GitHub.delegate({
   destroy: function (opts, cb) {
     this.del('/gists/:id', opts, cb);
     return this;
+  },
+
+  /**
+   * Create a comment.
+   *
+   * ```js
+   * // equivalent of `POST /gists/:id/comments`
+   * gists.comment(opts, cb);
+   * ```
+   * @name .comment
+   * @param {Object} `opts`
+   * @param {String} `opts.id` The id of the gist to comment on
+   * @param {Function} `callback`
+   * @api public
+   */
+
+  comment: function (opts, cb) {
+    this.post('/gists/:id/comments', opts, cb);
+    return this;
+  },
+
+  /**
+   * Edit a comment.
+   *
+   * ```js
+   * // equivalent of `PATCH /gists/:gist_id/comments/:id`
+   * gists.editComment(opts, cb);
+   * ```
+   * @name .editComment
+   * @param {Object} `opts`
+   * @param {String} `opts.id` The id of the gist.
+   * @param {String} `opts.comment_id` The id of the comment to edit.
+   * @param {Function} `callback`
+   * @api public
+   */
+
+  editComment: function (opts, cb) {
+    this.patch('/gists/:id/comments/:comment_id', opts, cb);
+    return this;
+  },
+
+  /**
+   * Delete a comment.
+   *
+   * ```js
+   * // equivalent of `DELETE /gists/:gist_id/comments/:id`
+   * var opts = {id: 'a6db0bec360bb87e9418', commend_id: 1};
+   * gists.destroyComment(opts, cb);
+   * ```
+   * @name .destroyComment
+   * @param {Object} `opts`
+   * @param {String} `opts.id` The id of the gist.
+   * @param {String} `opts.comment_id` The id of the comment to edit.
+   * @param {Function} `callback`
+   * @api public
+   */
+
+  destroyComment: function (opts, cb) {
+    this.patch('/gists/:id/comments/:comment_id', opts, cb);
+    return this;
+  },
+
+  /**
+   * Get a single comment from a gist.
+   *
+   * ```js
+   * // equivalent of `/gists/:id/comments/:comment_id`
+   * gists.comment(opts, cb);
+   * ```
+   * @name .getComment
+   * @param {Object} `opts`
+   * @param {String} `opts.id` The id of the gist to get.
+   * @param {String} `opts.comment_id` The id of the comment to get.
+   * @param {Function} `callback`
+   * @api public
+   */
+
+  getComment: function (opts, cb) {
+    this.get('/gists/:id/comments/:comment_id', opts, cb);
+    return this;
+  },
+
+  /**
+   * List comments on a gist
+   *
+   * ```js
+   * // equivalent of `GET /gists/:id/comments`
+   * gists.getComments(opts, cb);
+   * ```
+   * @name .comments
+   * @param {Object} `opts`
+   * @param {String} `opts.id` The id of the gist
+   * @param {Function} `callback`
+   * @api public
+   */
+
+  getComments: function (opts, cb) {
+    this.get('/gists/:id/comments', opts, cb);
+    return this;
   }
 });
 
