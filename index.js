@@ -249,7 +249,7 @@ GitHub.delegate({
   },
 
   /**
-   * Untar a gist.
+   * Unstar a gist.
    *
    * ```js
    * // equivalent of `DELETE /gists/:id/star`
