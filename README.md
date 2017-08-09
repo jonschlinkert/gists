@@ -1,6 +1,14 @@
-# gists [![NPM version](https://badge.fury.io/js/gists.svg)](http://badge.fury.io/js/gists)
+# gists [![NPM version](https://img.shields.io/npm/v/gists.svg?style=flat)](https://www.npmjs.com/package/gists) [![NPM monthly downloads](https://img.shields.io/npm/dm/gists.svg?style=flat)](https://npmjs.org/package/gists) [![NPM total downloads](https://img.shields.io/npm/dt/gists.svg?style=flat)](https://npmjs.org/package/gists) [![Linux Build Status](https://img.shields.io/travis/jonschlinkert/gists.svg?style=flat&label=Travis)](https://travis-ci.org/jonschlinkert/gists)
 
 > Methods for working with the GitHub Gist API. Node.js/JavaScript
+
+## Install
+
+Install with [npm](https://www.npmjs.com/):
+
+```sh
+$ npm install --save gists
+```
 
 **Full support for:**
 
@@ -9,14 +17,6 @@
 
 _(If you find something missing or encounter a bug, please [create an issue](https://github.com/jonschlinkert/gists/issues/new). Thanks!)_
 
-## Install
-
-Install with [npm](https://www.npmjs.com/)
-
-```sh
-$ npm i gists --save
-```
-
 See the [GitHub Gist API documentation](https://developer.github.com/v3/gists/) for additional details on each method.
 
 ## Usage
@@ -24,10 +24,12 @@ See the [GitHub Gist API documentation](https://developer.github.com/v3/gists/) 
 ```js
 var Gists = require('gists');
 var gists = new Gists({
-  username: 'foobarbaz123',
-  password: '**********'
+  username: 'your_username',
+  password: 'your_password'
 });
 ```
+
+See [github-base](https://github.com/jonschlinkert/github-base) for all available options and authenication options.
 
 **Example**
 
@@ -53,34 +55,23 @@ Creat an instance of `Gists` with the given default `options`.
 
 * `options` **{Object}**
 
-**Example**
+### [.list](index.js#L37)
 
-```js
-var Gists = require('gists');
-var gists = new Gists({
-  username: 'foobarbaz123',
-  password: '**********'
-});
-```
-
-### [.list](index.js#L39)
-
-List a user's gists.
+List a user's gists. By default, the currently authenticated user's gists will be returned. Define `options.user` to get a different user's public gists.
 
 **Params**
 
-* `opts` **{Object}**
-* `opts.username` **{String}**
+* `options` **{Object|Function}**: Options or callback.
 * `callback` **{Function}**
 
 **Example**
 
 ```js
-// equivalent of `GET /users/:username/gists`
-gists.list({username: 'doowb'}, cb);
+// GET /users/:user/gists
+gists.list({user: 'doowb'}, cb);
 ```
 
-### [.all](index.js#L58)
+### [.all](index.js#L63)
 
 List the authenticated user's gists or if called anonymously, this will return all public gists:.
 
@@ -92,11 +83,11 @@ List the authenticated user's gists or if called anonymously, this will return a
 **Example**
 
 ```js
-// equivalent of `GET /gists/`
+// GET /gists/
 gists.all(opts, cb);
 ```
 
-### [.allPublic](index.js#L76)
+### [.allPublic](index.js#L80)
 
 List all public gists:.
 
@@ -108,11 +99,11 @@ List all public gists:.
 **Example**
 
 ```js
-// equivalent of `GET /gists/public`
+// GET /gists/public
 gists.allPublic(opts, cb);
 ```
 
-### [.starred](index.js#L94)
+### [.starred](index.js#L97)
 
 List the authenticated user's starred gists..
 
@@ -124,11 +115,11 @@ List the authenticated user's starred gists..
 **Example**
 
 ```js
-// equivalent of `GET /gists/starred`
+// GET /gists/starred
 gists.starred(opts, cb);
 ```
 
-### [.download](index.js#L113)
+### [.download](index.js#L115)
 
 Download a gist..
 
@@ -141,11 +132,11 @@ Download a gist..
 **Example**
 
 ```js
-// equivalent of `GET /gists/:id`
+// GET /gists/:id
 gists.download(opts, cb);
 ```
 
-### [.revision](index.js#L133)
+### [.revision](index.js#L134)
 
 Get a specific revision of a gist.
 
@@ -159,7 +150,7 @@ Get a specific revision of a gist.
 **Example**
 
 ```js
-// equivalent of `GET /gists/:id/:sha`
+// GET /gists/:id/:sha
 gists.revision(opts, cb);
 ```
 
@@ -176,11 +167,11 @@ List gist commits for a gist.
 **Example**
 
 ```js
-// equivalent of `GET /gists/:id/commits`
+// GET /gists/:id/commits
 gists.commit(opts, cb);
 ```
 
-### [.forks](index.js#L171)
+### [.forks](index.js#L170)
 
 List all forks for a gist..
 
@@ -193,11 +184,11 @@ List all forks for a gist..
 **Example**
 
 ```js
-// equivalent of `GET /gists/:id/forks`
+// GET /gists/:id/forks
 gists.forks(opts, cb);
 ```
 
-### [.create](index.js#L189)
+### [.create](index.js#L187)
 
 Create a gist.
 
@@ -209,11 +200,11 @@ Create a gist.
 **Example**
 
 ```js
-// equivalent of `POST /gists`
+// POST /gists
 gists.create(opts, cb);
 ```
 
-### [.fork](index.js#L208)
+### [.fork](index.js#L205)
 
 Fork a gist.
 
@@ -226,11 +217,11 @@ Fork a gist.
 **Example**
 
 ```js
-// equivalent of `POST /gists/:id/forks`
+// POST /gists/:id/forks
 gists.fork(opts, cb);
 ```
 
-### [.edit](index.js#L227)
+### [.edit](index.js#L223)
 
 Edit/update a gist.
 
@@ -243,11 +234,11 @@ Edit/update a gist.
 **Example**
 
 ```js
-// equivalent of `PATCH /gists/:id`
+// PATCH /gists/:id
 gists.edit(opts, cb);
 ```
 
-### [.star](index.js#L246)
+### [.star](index.js#L241)
 
 Star a gist.
 
@@ -260,13 +251,13 @@ Star a gist.
 **Example**
 
 ```js
-// equivalent of `PUT /gists/:id/star`
+// PUT /gists/:id/star
 gists.star(opts, cb);
 ```
 
-### [.unstar](index.js#L265)
+### [.unstar](index.js#L259)
 
-Untar a gist.
+Unstar a gist.
 
 **Params**
 
@@ -277,11 +268,11 @@ Untar a gist.
 **Example**
 
 ```js
-// equivalent of `DELETE /gists/:id/star`
+// DELETE /gists/:id/star
 gists.unstar(opts, cb);
 ```
 
-### [.isStarred](index.js#L284)
+### [.isStarred](index.js#L277)
 
 Check if a gist is starred.
 
@@ -294,11 +285,11 @@ Check if a gist is starred.
 **Example**
 
 ```js
-// equivalent of `GET /gists/:id/star`
+// GET /gists/:id/star
 gists.isStarred(opts, cb);
 ```
 
-### [.destroy](index.js#L303)
+### [.destroy](index.js#L295)
 
 Delete a gist.
 
@@ -311,11 +302,11 @@ Delete a gist.
 **Example**
 
 ```js
-// equivalent of `DELETE /gists/:id`
+// DELETE /gists/:id
 gists.destroy(opts, cb);
 ```
 
-### [.comment](index.js#L322)
+### [.comment](index.js#L313)
 
 Create a comment.
 
@@ -328,11 +319,11 @@ Create a comment.
 **Example**
 
 ```js
-// equivalent of `POST /gists/:id/comments`
+// POST /gists/:id/comments
 gists.comment(opts, cb);
 ```
 
-### [.editComment](index.js#L342)
+### [.editComment](index.js#L332)
 
 Edit a comment.
 
@@ -346,11 +337,11 @@ Edit a comment.
 **Example**
 
 ```js
-// equivalent of `PATCH /gists/:gist_id/comments/:id`
+// PATCH /gists/:gist_id/comments/:id
 gists.editComment(opts, cb);
 ```
 
-### [.destroyComment](index.js#L363)
+### [.destroyComment](index.js#L352)
 
 Delete a comment.
 
@@ -364,12 +355,12 @@ Delete a comment.
 **Example**
 
 ```js
-// equivalent of `DELETE /gists/:gist_id/comments/:id`
+// DELETE /gists/:gist_id/comments/:id
 var opts = {id: 'a6db0bec360bb87e9418', commend_id: 1};
 gists.destroyComment(opts, cb);
 ```
 
-### [.getComment](index.js#L383)
+### [.getComment](index.js#L371)
 
 Get a single comment from a gist.
 
@@ -383,11 +374,11 @@ Get a single comment from a gist.
 **Example**
 
 ```js
-// equivalent of `/gists/:id/comments/:comment_id`
+// GET /gists/:id/comments/:comment_id
 gists.comment(opts, cb);
 ```
 
-### [.comments](index.js#L402)
+### [.getComments](index.js#L389)
 
 List comments on a gist
 
@@ -400,39 +391,60 @@ List comments on a gist
 **Example**
 
 ```js
-// equivalent of `GET /gists/:id/comments`
+// GET /gists/:id/comments
 gists.getComments(opts, cb);
 ```
 
-## Related projects
+## About
 
-* [github-base](https://github.com/jonschlinkert/github-base): Base methods for creating node.js apps that work with the GitHub API.
-* [github-contributors](https://github.com/jonschlinkert/github-contributors): Generate a markdown or JSON list of contributors for a project using the GitHub API.
+### Related projects
 
-## Running tests
+You might also be interested in these projects:
 
-Install dev dependencies:
+* [github-base](https://www.npmjs.com/package/github-base): JavaScript wrapper that greatly simplifies working with GitHub's API. | [homepage](https://github.com/jonschlinkert/github-base "JavaScript wrapper that greatly simplifies working with GitHub's API.")
+* [github-contributors](https://www.npmjs.com/package/github-contributors): Generate a markdown or JSON list of contributors for a project using the GitHub API. | [homepage](https://github.com/jonschlinkert/github-contributors "Generate a markdown or JSON list of contributors for a project using the GitHub API.")
+
+### Contributing
+
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](../../issues/new).
+
+### Contributors
+
+| **Commits** | **Contributor** | 
+| --- | --- |
+| 10 | [jonschlinkert](https://github.com/jonschlinkert) |
+| 1 | [sheeit](https://github.com/sheeit) |
+
+### Building docs
+
+_(This project's readme.md is generated by [verb](https://github.com/verbose/verb-generate-readme), please don't edit the readme directly. Any changes to the readme must be made in the [.verb.md](.verb.md) readme template.)_
+
+To generate the readme, run the following command:
 
 ```sh
-$ npm i -d && npm test
+$ npm install -g verbose/verb#dev verb-generate-readme && verb
 ```
 
-## Contributing
+### Running tests
 
-Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/jonschlinkert/gists/issues/new)
+Running and reviewing unit tests is a great way to get familiarized with a library and its API. You can install dependencies and run tests with the following command:
 
-## Author
+```sh
+$ npm install && npm test
+```
+
+### Author
 
 **Jon Schlinkert**
 
-+ [github/jonschlinkert](https://github.com/jonschlinkert)
-+ [twitter/jonschlinkert](http://twitter.com/jonschlinkert)
+* [github/jonschlinkert](https://github.com/jonschlinkert)
+* [twitter/jonschlinkert](https://twitter.com/jonschlinkert)
 
-## License
+### License
 
-Copyright © 2015 Jon Schlinkert
-Released under the MIT license.
+Copyright © 2017, [Jon Schlinkert](https://github.com/jonschlinkert).
+Released under the [MIT License](LICENSE).
 
 ***
 
-_This file was generated by [verb-cli](https://github.com/assemble/verb-cli) on August 11, 2015._
+_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.6.0, on August 09, 2017._
