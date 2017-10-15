@@ -61,7 +61,7 @@ Gists.prototype.list = function(options, cb) {
  */
 
 Gists.prototype.all = function(opts, cb) {
-  this.getAll('/gists/', opts, cb);
+  this.get('/gists/', opts, cb);
   return this;
 };
 

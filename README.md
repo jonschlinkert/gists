@@ -414,6 +414,7 @@ Pull requests and stars are always welcome. For bugs and feature requests, [plea
 | --- | --- |
 | 10 | [jonschlinkert](https://github.com/jonschlinkert) |
 | 1 | [sheeit](https://github.com/sheeit) |
+| 1 | [tennisonchan](https://github.com/tennisonchan) |
 
 ### Building docs
 
