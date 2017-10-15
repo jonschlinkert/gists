@@ -185,7 +185,7 @@ Gists.prototype.forks = function(opts, cb) {
  */
 
 Gists.prototype.create = function(opts, cb) {
-  this.post('/gists/', opts, cb);
+  this.post('/gists', opts, cb);
   return this;
 };
 
