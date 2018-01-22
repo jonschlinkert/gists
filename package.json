@@ -1,7 +1,7 @@
 {
   "name": "gists",
   "description": "Methods for working with the GitHub Gist API. Node.js/JavaScript",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/jonschlinkert/gists",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "contributors": [
