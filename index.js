@@ -61,7 +61,7 @@ Gists.prototype.list = function(options, cb) {
  */
 
 Gists.prototype.all = function(opts, cb) {
-  this.getAll('/gists/', opts, cb);
+  this.paged('/gists', opts, cb);
   return this;
 };
 
@@ -185,7 +185,7 @@ Gists.prototype.forks = function(opts, cb) {
  */
 
 Gists.prototype.create = function(opts, cb) {
-  this.post('/gists/', opts, cb);
+  this.post('/gists', opts, cb);
   return this;
 };
 
