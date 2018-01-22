@@ -5,8 +5,10 @@
   "homepage": "https://github.com/jonschlinkert/gists",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "contributors": [
+    "Brian Woodward (https://twitter.com/doowb)",
     "Jon Schlinkert (http://twitter.com/jonschlinkert)",
-    "strupo (https://github.com/sheeit)"
+    "strupo (https://github.com/sheeit)",
+    "Tennison Chan (https://github.com/tennisonchan)"
   ],
   "repository": "jonschlinkert/gists",
   "bugs": {
