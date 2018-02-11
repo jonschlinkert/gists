@@ -15,6 +15,7 @@ if (!auth) {
 if (isString(auth.username) && isString(auth.password)) {
   store.set('auth', auth);
 } else {
+  /* eslint-disable no-console */
   console.error('please specify authentication details');
   console.error('--username, -u (or first argument)');
   console.error('--password, -p (or second argument)');
