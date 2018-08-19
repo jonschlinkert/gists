@@ -20,19 +20,19 @@
   ],
   "main": "index.js",
   "engines": {
-    "node": ">=4"
+    "node": ">=8"
   },
   "scripts": {
     "test": "mocha"
   },
   "dependencies": {
-    "github-base": "^0.5.4"
+    "github-base": "^1.0.0"
   },
   "devDependencies": {
     "data-store": "^1.0.0",
     "gulp-format-md": "^1.0.0",
     "minimist": "^1.2.0",
-    "mocha": "^3.5.0"
+    "mocha": "^5.2.0"
   },
   "keywords": [
     "all",

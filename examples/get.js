@@ -2,8 +2,9 @@ const Gists = require('..');
 const gists = new Gists(require('../test/support/auth'));
 
 /**
- * List gists for a user.
+ * Get a gist
  */
 
-gists.list('doowb')
-  .then(res => console.log(res));
+gists.get('5854601')
+  .then(res => console.log(res))
+  .catch(console.error);
