@@ -61,7 +61,7 @@ The main export is the `Gists` class. Start by creating an instance of `Gists`.
 const Gists = require('gists');
 const gists = new Gists({ username: 'your_username', password: '*******' });
 
-// all methods, when invoked, return a promise with this sigature
+// all methods, when invoked, return a promise with this signature
 gists.get(...args)
   .then(res => console.log(res.body))
   .catch(console.error);
