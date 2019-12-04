@@ -352,7 +352,7 @@ class Gists extends GitHub {
    */
 
   editComment(gist_id, comment_id, options) {
-    return this.patch(`/gists/${gist_id}/comments/${comment_id}`, options);
+    return super.patch(`/gists/${gist_id}/comments/${comment_id}`, options);
   }
 
   /**
@@ -370,7 +370,7 @@ class Gists extends GitHub {
    */
 
   deleteComment(gist_id, comment_id, options) {
-    return this.delete(`/gists/${gist_id}/comments/${comment_id}`, options);
+    return super.delete(`/gists/${gist_id}/comments/${comment_id}`, options);
   }
 }
 
